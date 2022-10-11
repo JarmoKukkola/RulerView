@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="description">Tap to close ruler</string>
+  <string name="description_close_ruler">Tap to close ruler</string>
 </resources>

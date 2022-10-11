@@ -105,7 +105,7 @@ class OneDimensionRulerView:View {
         )
 
         canvas?.drawText(
-            context.getText(R.string.description).toString(),
+            context.getText(R.string.description_close_ruler).toString(),
             width*.5f,
             6*textPaint.textSize+5,
             textPaintReplace
