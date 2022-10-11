@@ -11,7 +11,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.github.JarmoKukkola.R
+import com.github.JarmoKukkola.rulerView.R
 import java.util.*
 
 /**
@@ -106,9 +106,9 @@ class OneDimensionRulerView:View {
 
         canvas?.drawText(
             context.getText(R.string.description).toString(),
-                width*.5f,
-                6*textPaint.textSize+5,
-                textPaintReplace
+            width*.5f,
+            6*textPaint.textSize+5,
+            textPaintReplace
         )
     }
 
