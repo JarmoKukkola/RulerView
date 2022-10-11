@@ -13,12 +13,12 @@ enum class RulerUnit(val converter: Float, val unit: String) {
 
     companion object {
 
-        fun mmToPx(mm: Float, coefficient: Float, displayMetrics: DisplayMetrics): Float {
-            return mm * TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, coefficient, displayMetrics)
+        fun mmToPx(mm: Float, displayMetrics: DisplayMetrics): Float {
+            return mm * TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, 1f, displayMetrics)
         }
 
-        fun pxToIn(px: Float, coefficient: Float, displayMetrics: DisplayMetrics): Float {
-            return px / TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN, coefficient, displayMetrics)
+        fun pxToIn(px: Float, displayMetrics: DisplayMetrics): Float {
+            return px / TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN, 1f, displayMetrics)
         }
 
     }
@@ -26,7 +26,7 @@ enum class RulerUnit(val converter: Float, val unit: String) {
     /**
      * @param value in IN
      */
-    fun getUnitString(value: Float) = "${(value * converter).format(1)} $unit"
+    fun getUnitString(value: Float) = "${(value * converter).format(2)} $unit"
 
     /**
      * @param value in IN
