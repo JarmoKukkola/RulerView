@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.github.JarmoKukkola.R
 import java.util.*
 
 /**
@@ -102,6 +103,13 @@ class OneDimensionRulerView:View {
             4*textPaint.textSize+5,
             textPaintReplace
         )
+
+        canvas?.drawText(
+            context.getText(R.string.description).toString(),
+                width*.5f,
+                6*textPaint.textSize+5,
+                textPaintReplace
+        )
     }
 
     private fun drawMarks(canvas:Canvas?,paint:Paint) {
@@ -150,7 +158,7 @@ class OneDimensionRulerView:View {
             }
             MotionEvent.ACTION_UP,MotionEvent.ACTION_CANCEL-> {
                 val timeDifference = GregorianCalendar().timeInMillis-timePressed
-                if(timeDifference<100) (context as AppCompatActivity).onBackPressed()
+                if(timeDifference<150) (context as AppCompatActivity).onBackPressed()
                 return false
             }
         }

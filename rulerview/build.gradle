@@ -5,7 +5,7 @@ apply plugin: 'maven-publish'
 android {
     compileSdkVersion 33
 
-    namespace = "com.github.JarmoKukkola"
+    namespace = "com.github.JarmoKukkola.rulerview"
 
     defaultConfig {
         minSdkVersion 15
@@ -29,7 +29,7 @@ afterEvaluate {
 
                 groupId = 'com.github.JarmoKukkola'
                 artifactId = 'rulerview'
-                version = '1.0.0'
+                version = '1.0.2'
             }
         }
     }
