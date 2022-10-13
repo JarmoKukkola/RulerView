@@ -74,7 +74,7 @@ class OneDimensionRulerView:View {
             ContextCompat.getColor(context,android.R.color.black)
         }
 
-        grayPaint.color = if (theme.resolveAttribute(R.attr.themeColorAccent, typedValue, true)) {
+        grayPaint.color = if (theme.resolveAttribute(R.attr.colorAccent, typedValue, true)) {
             typedValue.data
         }else {
             ContextCompat.getColor(context,android.R.color.darker_gray)
