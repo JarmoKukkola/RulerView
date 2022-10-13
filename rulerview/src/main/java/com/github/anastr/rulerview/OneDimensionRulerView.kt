@@ -8,9 +8,11 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.text.TextPaint
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.github.JarmoKukkola.rulerView.R
 import java.util.*
 
@@ -63,10 +65,22 @@ class OneDimensionRulerView:View {
     constructor(context:Context,attrs:AttributeSet?,defStyleAttr:Int):super(context,attrs,defStyleAttr)
 
     init {
-        setBackgroundColor(Color.DKGRAY)
-        colorPaintMask.color = Color.BLACK
+        val typedValue = TypedValue()
+        val theme = context.theme
 
-        grayPaint.color = Color.DKGRAY
+        colorPaintMask.color = if (theme.resolveAttribute(R.attr.colorPrimaryDark, typedValue, true)) {
+            typedValue.data
+        }else {
+            ContextCompat.getColor(context,android.R.color.black)
+        }
+
+        grayPaint.color = if (theme.resolveAttribute(R.attr.themeColorAccent, typedValue, true)) {
+            typedValue.data
+        }else {
+            ContextCompat.getColor(context,android.R.color.darker_gray)
+        }
+        setBackgroundColor(grayPaint.color)
+
         grayPaintReplace = Paint(grayPaint)
         grayPaintReplace.color = Color.WHITE
 
